@@ -1,3 +1,4 @@
+<!-- EDITED BY AHMAD -->
 @extends('admin.layouts.app')
 @push('js')
     <script src="{{asset('admin/js/apexcharts.js')}}"></script>
@@ -85,7 +86,42 @@
         });
 
     </script>
-
+    <style>
+        .img-upper-container{
+            width: 100%;
+            display: grid;
+            place-items: center;
+        }
+        .img-container{
+            width: fit-content;
+            box-shadow: 0 0.1rem 1rem 0.25rem rgb(0 0 0 / 7%);
+        }
+        .img-container img{
+            max-width: 100%;
+            height: auto;
+        }
+        .card-plan-img{
+            padding: 20px;
+        }
+        .card-plan-img p{
+            margin: 20px 0;
+            font-size: 1.1rem;
+        }
+        .btn-add-plan{
+            align-self: flex-start;
+        }
+        .green-btn{
+            background-color: #50cd89;
+            color: #fff;
+        }
+        .green-btn:hover{
+            background-color: #40a76f;
+            color: #fff;
+        }
+        .modal-body{
+            font-size: 1.1rem;
+        }
+    </style>
 
 @endpush
 @section('content')
@@ -223,6 +259,44 @@
 
             </div>
 
+            <div class="row mt-5" style="margin-top: 2rem !important;">
+                <div class="col-12">
+                    <div class="card shadow-sm card-plan-img">
+                        <div class="img-upper-container">
+                            <div class="img-container">
+                                <img src="https://nira.com/wp-content/uploads/2018/07/document-market-landscape-fyi.png" alt="cloudy">
+                            </div>
+                        </div>
+                        <p>لحارس المرمى هو اللاعأو ذراعيه، بشرط أن يكون داخل منطقة الجزاء. يستخدم اللاعبون غير الحارس أرجلهم غالباً في الهجوم أو تمرير الكرة لكنهم يمكنهم استخدام رأسهم لضرب الكرة. الفريق الذي يحرز أهدافاً أكثر يكون هو الفائز. إذا أحرز الفريقان أهدافاً متعادلة في نهاية المباراة، فتكون نتيجة المباراة إما التعادل أو تدخل المباراة البطولة.</p>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-add-plan green-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            إضافة خطة
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">إضافة خطة</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <label for="plan-file" style="margin-bottom: 5px;">إضافة صورة: </label>
+                    <input class="form-control" type="file" name="plan-file" id="plan-file"><br>
+                    <label for="desc" style="margin-bottom: 5px;">إضافة وصف: </label><br>
+                    <textarea class="form-control" style="line-height: 1rem;" name="desc" id="desc" cols="30" rows="5"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</button>
+                    <button type="button" class="btn green-btn">تأكيد</button>
+                </div>
+                </div>
+            </div>
+            </div>
         </div>
     </div>
 @endsection
