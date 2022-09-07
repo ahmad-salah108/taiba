@@ -1,0 +1,7 @@
+
+
+            Route::prefix('{{singularSlug}}')
+                ->as('{{singularSlug}}.')
+                ->middleware('web')
+                ->namespace('{{namespace}}\Http\Controllers\{{singularClass}}')
+                ->group(base_path('routes/{{singularSlug}}.php'));
